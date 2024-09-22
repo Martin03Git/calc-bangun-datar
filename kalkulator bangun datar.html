@@ -1,0 +1,424 @@
+<!-- Nama  : Martin Eka Putra Joya -->
+<!-- NIM   : 2022TI022             -->
+<!-- Kelas : Reguler Pagi ( A )    -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Luas Bangun Datar</title>
+
+  <style>
+    * {
+      padding: 0px;
+      margin: 0px;
+      box-sizing: border-box;
+      /* border: 1px solid black; */
+    }
+
+    body {
+      background-color: gainsboro;
+    }
+
+    .container {
+      width: 90%;
+      padding: 20px;
+      margin: 10px auto;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 1px 1px 7px 0.01px rgb(65, 62, 62);
+    }
+
+    h2 {
+      margin: 10px;
+      text-align: center;
+    }
+
+    h4 {
+      text-align: center;
+    }
+
+    hr {
+      margin-bottom: 20px;
+    }
+
+
+
+    .input {
+      /* border: 1px solid black; */
+      float: right;
+      width: 70%;
+    }
+
+    .bungkus {
+      float: left;
+      width: 30%;
+    }
+
+    table {
+      margin: 3% auto;
+      text-align: center;
+    }
+
+    td {
+      text-align: center;
+    }
+
+    .printah {
+      width: 350px;
+    }
+
+    .hitung {
+      width: 70px;
+    }
+
+    #luas {
+      border-bottom: 2px solid black;
+    }
+
+
+    /* bangun ruang */
+
+    .bangun_dtr {
+      padding: 10px;
+      /* border: 1px solid black; */
+    }
+
+    .persegi {
+      width: 100px;
+      height: 100px;
+      margin: 10px auto;
+      background-color: chocolate;
+    }
+
+    .persegi_pjg {
+      margin: 10px auto;
+      width: 200px;
+      height: 100px;
+      background-color: chocolate;
+    }
+
+    .segitiga {
+      margin: 10px auto;
+      width: 0px;
+      height: 0px;
+      border-bottom: 100px solid chocolate;
+      border-left: 50px solid rgba(0, 0, 0, 0);
+      border-right: 50px solid rgba(0, 0, 0, 0);
+    }
+
+    .lingkaran {
+      margin: 10px auto;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: chocolate;
+    }
+
+    .jajar_genjang {
+      margin: 10px auto;
+      width: 200px;
+      height: 100px;
+      transform: skew(30deg);
+      background-color: chocolate;
+    }
+
+    .belah_ketupat {
+      margin: 30px auto;
+      width: 100px;
+      height: 100px;
+      transform: rotate(45deg);
+      background-color: chocolate;
+    }
+
+    .trapesium {
+      margin: 10px auto;
+      width: 120px; 
+      height: 0; 
+      border-bottom: 120px solid chocolate; 
+      border-left: 60px solid transparent; 
+    }
+
+
+
+    .clear {
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <h2>Kalkulator Luas Bangun Datar</h2>
+    <hr>
+
+    <div class="bangun_dtr">
+      <div class="bungkus">
+        <div class="persegi"></div>
+        <h4>Persegi</h4>
+      </div>
+      <div class="input">
+        <table>
+          <tr>
+            <td class="printah">Masukkan Panjang Sisi : </td>
+            <td><input type="text" id="pj_sisi"></td>
+            <td class="hitung"><input type="button" value="hitung" id="hitung_p"></td>
+            <td>Luas = </td>
+            <td><div id="luas_p" style="display: inline;"></div>cm<sup>2</sup></td>
+          </tr>
+        </table>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="bangun_dtr">
+      <div class="bungkus">
+        <div class="persegi_pjg"></div>
+        <h4>Persegi Panjang</h4>
+      </div>
+      <div class="input">
+        <table>
+          <tr>
+            <td class="printah">Masukkan Panjang : </td>
+            <td><input type="text" id="pj"></td>
+            <td rowspan="2" class="hitung"><input type="button" value="hitung" id="hitung_pp"></td>
+            <td rowspan="2">Luas = </td>
+            <td rowspan="2"><div id="luas_pp" style="display: inline;"></div>cm<sup>2</sup></td>
+          </tr>
+          <tr>
+            <td class="printah">Masukkan Lebar : </td>
+            <td><input type="text" id="lbr"></td>
+          </tr>
+        </table>
+      </div>
+      <div class="clear"></div>
+    </div>
+    
+    <div class="bangun_dtr">
+      <div class="bungkus">
+        <div class="segitiga"></div>
+        <h4>Segitiga</h4>
+      </div>
+      <div class="input">
+        <table border="0px">
+          <tr>
+            <td class="printah">Masukkan Panjang Alas : </td>
+            <td><input type="text" id="pj_alas"></td>
+            <td class="hitung" rowspan="2"><input type="button" value="hitung" id="hitung_sgt"></td>
+            <td rowspan="2">Luas = </td>
+            <td rowspan="2"><div id="luas_sgt" style="display: inline;"></div>cm<sup>2</sup></td>
+          </tr>
+          <tr>
+            <td class="printah">Masukkan Tinggi : </td>
+            <td><input type="text" id="tinggi"></td>
+          </tr>
+        </table>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="bangun_dtr">
+      <div class="bungkus">
+        <div class="lingkaran"></div>
+        <h4>Lingkaran</h4>
+      </div>
+      <div class="input">
+        <table>
+          <tr>
+            <td class="printah">Masukkan Jari - jari ( kelipatan 7 ) : </td>
+            <td><input type="text" id="r7"></td>
+            <td class="hitung"><input type="button" value="hitung" id="hitung_r7"></td>
+            <td>Luas = </td>
+            <td><div id="luas_lingr7" style="display: inline;"></div>cm<sup>2</sup></td>
+          </tr>
+          <tr>
+            <td class="printah">Masukkan Jari - jari ( bukan kelipatan 7 ) : </td>
+            <td><input type="text" id="r"></td>
+            <td class="hitung"><input type="button" value="hitung" id="hitung_r"></td>
+            <td>Luas = </td>
+            <td><div id="luas_ling" style="display: inline;"></div>cm<sup>2</sup></td>
+          </tr>
+        </table>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="bangun_dtr">
+      <div class="bungkus">
+        <div class="jajar_genjang"></div>
+        <h4>Jajar Genjang</h4>
+      </div>
+      <div class="input">
+        <table>
+          <tr>
+            <td class="printah">Masukkan Panjang Alas : </td>
+            <td><input type="text" id="a_jg"></td>
+            <td rowspan="2" class="hitung"><input type="button" value="hitung" id="hitung_jg"></td>
+            <td rowspan="2">Luas = </td>
+            <td rowspan="2"><div id="luas_jg" style="display: inline;"></div>cm<sup>2</sup></td>
+          </tr>
+          <tr>
+            <td class="printah">Masukkan Tinggi : </td>
+            <td><input type="text" id="t_jg"></td>
+          </tr>
+        </table>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="bangun_dtr">
+      <div class="bungkus">
+        <div class="belah_ketupat"></div>
+        <h4>Belah Ketupat</h4></div>
+      <div class="input">
+        <table>
+          <tr>
+            <td class="printah">Masukkan Panjang Diagonal 1 : </td>
+            <td><input type="text" id="pj_d1"></td>
+            <td class="hitung"><input type="button" value="hitung" id="hitung_bk"></td>
+            <td>Luas = </td>
+            <td><div id="luas_bk" style="display: inline;"></div>cm<sup>2</sup></td>
+          </tr>
+          <tr>
+            <td class="printah">Masukkan Panjang Diagonal 2 : </td>
+            <td><input type="text" id="pj_d2"></td>
+          </tr>
+        </table>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="bangun_dtr">
+      <div class="bungkus">
+        <div class="trapesium"></div>
+        <h4>Trapesium</h4>
+      </div>
+      <div class="input">
+        <table>
+          <tr>
+            <td class="printah">Masukkan Panjang Sisi Atas : </td>
+            <td><input type="text" id="pj_sisi_a"></td>
+            <td class="hitung" rowspan="3"><input type="button" value="hitung" id="hitung_trap"></td>
+            <td rowspan="3">Luas = </td>
+            <td rowspan="3"><div id="luas_trap" style="display: inline;"></div>cm<sup>2</sup></td>
+          </tr>
+          <tr>
+            <td class="printah">Masukkan Panjang Sisi Bawah : </td>
+            <td><input type="text" id="pj_sisi_b"></td>
+          </tr>
+          <tr>
+            <td class="printah">Masukkan Tinggi : </td>
+            <td><input type="text" id="t_trap"></td>
+          </tr>
+        </table>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+  </div>
+
+
+  <script>
+
+  // persegi
+  document.getElementById("hitung_p").addEventListener('click', Lp)
+  function Lp() {
+    // ambil value input
+    let s = parseInt(document.getElementById("pj_sisi").value);
+
+    // tampilkan hasil perhitungan
+    document.getElementById("luas_p").innerHTML = s*s;
+  }
+
+
+  // persegi panjang
+  document.getElementById("hitung_pp").addEventListener('click', Lpp)
+  function Lpp() {
+    // ambil value input
+    let p = parseInt(document.getElementById("pj").value);
+    let l = parseInt(document.getElementById("lbr").value);
+
+    // tampilkan hasil perhitungan
+    document.getElementById("luas_pp").innerHTML = p*l;
+  }
+
+
+  // segitiga
+  document.getElementById("hitung_sgt").addEventListener('click', Lsgt)
+  function Lsgt() {
+    // ambil value input
+    let a = parseInt(document.getElementById("pj_alas").value);
+    let t = parseInt(document.getElementById("tinggi").value);
+
+    // tampilkan hasil perhitungan
+    document.getElementById("luas_sgt").innerHTML = (a*t)/2;
+  }
+
+  
+  // lingkaran r7
+  document.getElementById("hitung_r7").addEventListener('click', Lling7)
+  function Lling7() {
+    // ambil value input
+    let r = parseInt(document.getElementById("r7").value);
+
+    // tampilkan hasil perhitungan
+    document.getElementById("luas_lingr7").innerHTML = (r*r) / 7 * 22;
+  }
+
+
+  // lingkaran bukan r7
+  document.getElementById("hitung_r").addEventListener('click', Lling)
+  function Lling() {
+    // ambil value input
+    let r = parseInt(document.getElementById("r").value);
+
+    // tampilkan hasil perhitungan
+    document.getElementById("luas_ling").innerHTML = (r*r) * 3.14;
+  }
+
+
+  // jajar genjang
+  document.getElementById("hitung_jg").addEventListener('click', Ljg)
+  function Ljg() {
+    // ambil value input
+    let a = parseInt(document.getElementById("a_jg").value);
+    let t = parseInt(document.getElementById("t_jg").value);
+
+    // tampilkan hasil perhitungan
+    document.getElementById("luas_jg").innerHTML = a * t;
+  }
+
+
+  // belah ketupat
+  document.getElementById("hitung_bk").addEventListener('click', Lbk)
+  function Lbk() {
+    // ambil value input
+    let d1 = parseInt(document.getElementById("pj_d1").value);
+    let d2 = parseInt(document.getElementById("pj_d2").value);
+
+    // tampilkan hasil perhitungan
+    document.getElementById("luas_bk").innerHTML = (d1 * d2)/2;
+  }
+
+
+  // trapesium
+  document.getElementById("hitung_trap").addEventListener('click', Ltrap)
+  function Ltrap() {
+    // ambil value input
+    let s1 = parseInt(document.getElementById("pj_sisi_a").value);
+    let s2 = parseInt(document.getElementById("pj_sisi_b").value);
+    let t = parseInt(document.getElementById("t_trap").value);
+
+    // tampilkan hasil perhitungan
+    document.getElementById("luas_trap").innerHTML = (( s1 + s2 ) * t)/2;
+  }
+
+
+
+
+  </script>
+</body>
+</html>
